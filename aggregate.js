@@ -26,6 +26,7 @@ const writeFile = (file, content) => {
   return promise;
 };
 
+
 const aggregate = (filePath) => {
   Promise.all([readFile(filePath), readFile(mapPath)]).then((values) => {
     const csvFileData = (values[0].replace(/"/g, '')).split('\n');
@@ -54,7 +55,5 @@ const aggregate = (filePath) => {
     writeFile('output/output.json', JSON.stringify(output));
   });
 };
-
-// aggregate('data/datafile.csv');
 
 module.exports = aggregate;
